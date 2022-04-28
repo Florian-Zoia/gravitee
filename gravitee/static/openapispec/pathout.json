@@ -1,0 +1,467 @@
+{"openapi": 3.0.1,
+"info":{
+"title": "COM Software OPENAPI Generator",
+"description": "Das hier ist eine generierte OPENAPI Spezifikation",
+"termsOfService": "http://swagger.io/terms/",
+"contact": {
+"name": "FLORIAN ZOIA",
+"email": "florian.zoia@com-software.de"
+},
+"license": {
+"name": "License Apache 2.0",
+"url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+},
+"version": "3.0.1"
+},
+"servers":[
+    {
+    "url": "http://172.129.122.140",
+    "description": "DALLAS"
+    }
+],
+"paths": {
+"/catalog/inqSingle":{
+    "get":{
+        "tags": [
+            "CATALOG MANAGER"
+        ],
+        "operationId": "",
+        "responses":{
+           "200":{
+              "description": "",
+              "headers":{
+                 "server":{
+                    "description":"",
+                    "schema":{
+                       "type": "string"
+                    }
+                 }
+              },
+              "content": {
+                 "application/json":{
+                    "schema":{
+                       "$ref": "#/components/schemas/inqsina"
+                    }
+                 }
+              }
+           },
+           "400":{
+              "description": "bad request",
+              "content":{
+                 "application/json":{
+                    "schema":{
+                       "$ref": "#/components/schemas/inqsina"
+                 }
+              }
+              }
+           },
+           "500":{
+              "description": "server error",
+              "content":{
+                 "application/json":{
+                    "schema":{
+                       "$ref": "#/components/schemas/inqsina"
+                 }
+              }
+           }
+        }
+    }
+    }
+    }
+,
+"/catalog/inqCatalog":{
+    "get":{
+        "tags": [
+            "CATALOG MANAGER"
+        ],
+        "operationId": "",
+        "responses":{
+           "200":{
+              "description": "",
+              "headers":{
+                 "server":{
+                    "description":"",
+                    "schema":{
+                       "type": "string"
+                    }
+                 }
+              },
+              "content": {
+                 "application/json":{
+                    "schema":{
+                       "$ref": "#/components/schemas/inqcata"
+                    }
+                 }
+              }
+           },
+           "400":{
+              "description": "bad request",
+              "content":{
+                 "application/json":{
+                    "schema":{
+                       "$ref": "#/components/schemas/inqcata"
+                 }
+              }
+              }
+           },
+           "500":{
+              "description": "server error",
+              "content":{
+                 "application/json":{
+                    "schema":{
+                       "$ref": "#/components/schemas/inqcata"
+                 }
+              }
+           }
+        }
+    }
+    }
+    }
+,
+"/ABSCHLUSS/VERSICHERUNG":{
+    "post":{
+        "tags": [
+            "VERSICHERUNG"
+        ],
+        "summary": "",
+        "operationId": "",
+        "requestBody": {
+            "content":{
+                "APPLICATION/JSON":{
+                    "schema": {
+                        "$ref": "#/components/schemas/versicherung"
+                    }
+
+                }
+            }
+        },
+        "responses":{
+           "200":{
+                "description": ""
+              }
+           }
+        }
+    }
+,
+"/MEDIKAMENTE/SINGLE":{
+    "get":{
+        "tags": [
+            "MEDIKAMENTE-SINGLE"
+        ],
+        "operationId": "",
+        "responses":{
+           "200":{
+              "description": "",
+              "headers":{
+                 "server":{
+                    "description":"",
+                    "schema":{
+                       "type": "string"
+                    }
+                 }
+              },
+              "content": {
+                 "APPLICATION/JSON":{
+                    "schema":{
+                       "$ref": "#/components/schemas/medikamente-single"
+                    }
+                 }
+              }
+           },
+           "400":{
+              "description": "bad request",
+              "content":{
+                 "APPLICATION/JSON":{
+                    "schema":{
+                       "$ref": "#/components/schemas/medikamente-single"
+                 }
+              }
+              }
+           },
+           "500":{
+              "description": "server error",
+              "content":{
+                 "APPLICATION/JSON":{
+                    "schema":{
+                       "$ref": "#/components/schemas/medikamente-single"
+                 }
+              }
+           }
+        }
+    }
+    }
+    }
+,
+},
+"components": {
+"schemas": {
+      "inqcata":{
+         "type":"object",
+         "properties":{
+            "ca_inquire_request":{
+               "type":"object",
+               "properties":{
+                  "ca_list_start_ref":{
+                     "type":"integer",
+                     "maximum":9999,
+                     "minimum":0
+                  },
+                  "ca_last_item_ref":{
+                     "type":"integer",
+                     "maximum":9999,
+                     "minimum":0
+                  },
+                  "ca_item_count":{
+                     "type":"integer",
+                     "maximum":999,
+                     "minimum":0
+                  },
+                  "ca_cat_item":{
+                     "type":"array",
+                     "maxItems":15,
+                     "minItems":15,
+                     "items":{
+                        "type":"object",
+                        "properties":{
+                           "ca_item_ref":{
+                              "type":"integer",
+                              "maximum":9999,
+                              "minimum":0
+                           },
+                           "ca_description":{
+                              "type":"string",
+                              "maxLength":40
+                           },
+                           "ca_department":{
+                              "type":"integer",
+                              "maximum":999,
+                              "minimum":0
+                           },
+                           "ca_cost":{
+                              "type":"string",
+                              "maxLength":6
+                           },
+                           "in_stock":{
+                              "type":"integer",
+                              "maximum":9999,
+                              "minimum":0
+                           },
+                           "on_order":{
+                              "type":"integer",
+                              "maximum":999,
+                              "minimum":0
+                           }
+                        },
+                        "required":[
+                           "ca_item_ref",
+                           "ca_description",
+                           "ca_department",
+                           "ca_cost",
+                           "in_stock",
+                           "on_order"
+                        ]
+                     }
+                  }
+               },
+               "required":[
+                  "ca_list_start_ref",
+                  "ca_last_item_ref",
+                  "ca_item_count",
+                  "ca_cat_item"
+               ]
+            }
+         },
+         "required":[
+            "ca_inquire_request"
+         ]
+      }
+,
+      "inqsina":{
+         "type":"object",
+         "properties":{
+            "ca_inquire_single":{
+               "type":"object",
+               "properties":{
+                  "ca_item_ref_req":{
+                     "type":"integer",
+                     "maximum":9999,
+                     "minimum":0
+                  },
+                  "ca_single_item":{
+                     "type":"object",
+                     "properties":{
+                        "ca_sngl_item_ref":{
+                           "type":"integer",
+                           "maximum":9999,
+                           "minimum":0
+                        },
+                        "ca_sngl_description":{
+                           "type":"string",
+                           "maxLength":40
+                        },
+                        "ca_sngl_department":{
+                           "type":"integer",
+                           "maximum":999,
+                           "minimum":0
+                        },
+                        "ca_sngl_cost":{
+                           "type":"string",
+                           "maxLength":6
+                        },
+                        "in_sngl_stock":{
+                           "type":"integer",
+                           "maximum":9999,
+                           "minimum":0
+                        },
+                        "on_sngl_order":{
+                           "type":"integer",
+                           "maximum":999,
+                           "minimum":0
+                        }
+                     },
+                     "required":[
+                        "ca_sngl_item_ref",
+                        "ca_sngl_description",
+                        "ca_sngl_department",
+                        "ca_sngl_cost",
+                        "in_sngl_stock",
+                        "on_sngl_order"
+                     ]
+                  }
+               },
+               "required":[
+                  "ca_item_ref_req",
+                  "ca_single_item"
+               ]
+            }
+         },
+         "required":[
+            "ca_inquire_single"
+         ]
+      }
+,
+  "medikamente-single": {
+              "type": "object",
+              "properties": {
+                "Anzahl": {
+                  "type": "integer",
+                  "maxLength": 3
+                },
+                "Name": {
+                  "type": "string",
+                  "maxLength": 300
+                },
+                 "Pharmazentralnummer": {
+                                "type": "integer",
+                                "maxLength": 8
+                              },
+                              "Verordnet_am": {
+                                "type": "string",
+                                "maxLength": 10
+                              },
+                 "Apotheke": {
+                                "type": "object",
+                                "properties":{
+                                  "Name": {
+                                    "type": "string",
+                                    "maxLength": 300
+                                  },
+                                  "Anschrift": {
+                                    "type": "object",
+                                    "properties": {
+                                      "Straße": {
+                                        "type": "string",
+                                        "maxLength": 200
+                                      },
+                                      "Hausnummer": {
+                 "type": "integer",
+                                    "maxLength": 5
+                                  },
+                                  "Postleizahl": {
+                                    "type": "integer",
+                                    "maxLength": 8
+                                  },
+                                  "Stadt": {
+                                    "type": "string",
+                                    "maxLength": 200
+                                  },
+                                  "Land": {
+                                    "type": "string",
+                                    "maxLength": 200
+                                  }
+                                  }
+                                }
+                              }
+                            },
+         "Kosten": {
+                         "type": "object",
+                         "properties": {
+                           "Apothekenpreis": {
+                             "type": "integer",
+                             "maxLength": 10
+                           },
+                           "zusätzliche_Kosten": {
+                             "type": "integer",
+                             "maxLength": 10
+                           },
+         "Zuzahlungen": {
+                             "type": "integer",
+                             "maxLength": 10
+                           }
+                         }
+                       }
+                     }
+}
+,
+              "versicherung":{
+                 "type":"object",
+                 "properties":{
+                    "Lebenssituation": {
+                      "type": "string",
+                      "maxLength": 15
+                    },
+                    "Lebensbereich": {
+                      "type": "object",
+                      "properties": {
+                        "Privat": {
+                          "type": "boolean"
+                        },
+                        "Beruf": {
+                          "type": "boolean"
+                        },
+                        "Wohnen": {
+                          "type": "boolean"
+                        },
+                        "Verkehr": {
+                          "type": "boolean"
+                        }
+                          }
+  },
+  "Beitragsnachlass": {
+  "type": "object",
+  "properties": {
+  "startbonus-junge-leute": {
+  "type": "boolean"
+  },
+  "rechtsschutz-senioren": {
+  "type": "boolean"
+  },
+  "beamten-tarif": {
+  "type": "boolean"
+  }
+  }
+  },
+  "Versicherungsbeginn": {
+  "type": "string",
+  "maxLength": 10
+  }
+  },
+  "required":[
+  "Lebenssituation",
+  "Lebensbereich",
+  "Versicherungsbeginn"
+  ]
+  }
+,
+}}
+}
